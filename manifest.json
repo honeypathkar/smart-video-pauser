@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Video Pauser",
+  "version": "1.0",
+  "description": "Automatically pauses videos when you switch tabs.",
+  "permissions": ["scripting", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Smart Video Pauser"
+  }
+}
