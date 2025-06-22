@@ -1,6 +1,6 @@
 let videos = [];
 
-document.addEventListener("visibilitychange", () => {
+function handleVisibility() {
   videos = Array.from(document.querySelectorAll("video"));
 
   if (document.hidden) {
@@ -18,4 +18,12 @@ document.addEventListener("visibilitychange", () => {
       }
     });
   }
-});
+}
+
+document.addEventListener("visibilitychange", handleVisibility);
+
+setInterval(() => {
+  if (!document.hidden) {
+    videos = Array.from(document.querySelectorAll("video"));
+  }
+}, 2000);
